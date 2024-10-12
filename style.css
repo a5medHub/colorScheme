@@ -1,4 +1,15 @@
 body{
     margin: 0;
     padding: 0;
+    
+}
+#section-one div{
+    display: flex;
+}
+
+#section-two {
+    display: flex;
+    flex-direction: column;
+    border: 2em solid red;
+    margin: 2em;
 }
