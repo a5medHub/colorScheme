@@ -3,13 +3,43 @@ body{
     padding: 0;
     
 }
-#section-one div{
+/* #section-one div{
     display: flex;
+} */
+#section-one, #section-two, #section-three {
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap;
+    gap: 0.5em; */
 }
+#section-one {
+    padding: 1em 0.5em;
+}
+#section-two div {
+    border: 0.2em solid red;
+    /* padding: 2em 0.2em; */
+    height: 60vh;
+    width: 50%;
+    
+}
+.colorInput input {
+    padding: 0;
+    border: 0px solid #778899;
+    height: 5vh;
+    width: 10vw;
 
-#section-two {
-    display: flex;
-    flex-direction: column;
-    border: 2em solid red;
-    margin: 2em;
 }
+.colorInput , .colorSelector, .setColor {
+    margin: auto;
+    justify-content: space-between;
+    border-radius: 0.2rem;
+    padding: 1em 0;
+}
+.setColor, .setColor button {
+    padding: 0.5em;
+    /* margin: auto 1em; */
+}
+/* .setColor button, .colorInput {
+    background-color: aliceblue;
+    padding: 1em;
+} */

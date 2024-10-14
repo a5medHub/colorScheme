@@ -8,29 +8,33 @@
 </head>
 <body>
     <section id="section-one">
-        <div id="">
+        <div class="colorInput" id="">
             <input type="color" />
-            
         </div>
-        <div id="">
-            <select name="colorPicker" id="">
-                <option value="">color one</option>
+        <div class="colorSelector" id="">
+            <select class="setColor"  name="colorPicker" id="">
+                <option value="monochrome">Monochrome</option>
+                <option value="monochrome-dark">Monochrome-dark</option>
+                <option value="monochrome-light">Monochrome-light</option>
+                <option value="analogic">Analogic</option>
+                <option value="complement">Complement</option>
+                <option value="analogic-complement">Analogic-complement</option>
+                <option value="triad">Triad</option>
             </select>
             
         </div>
-        <div id="">
+        <div class="setColor" id="">
             <button>set color scheme</button>
-            
         </div>
     </section>
 
-    <section id="section-two">
+    <div id="section-two">
         <div id="">1</div>
         <div id="">2</div>
         <div id="">3</div>
         <div id="">4</div>
         <div id="">5</div>
-    </section>
+    </div>
 
     <section id="section-three">
         <div id="">colorHex</div>
@@ -41,6 +45,6 @@
     </section>
 
     
+    <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
 </html>
