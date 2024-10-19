@@ -2,10 +2,12 @@
 
 const colorSeed = document.getElementById("color-seed")
 const colorPicker = document.getElementById("color-picker")
+const setColorBtn = document.getElementById("set-color-btn")
+
 
 
 colorSeed.addEventListener("change", (e)=>{
-    console.log("color selcted", e.target.value)
+    console.log("color selected", e.target.value)
 })
 
 
@@ -13,16 +15,13 @@ colorSeed.addEventListener("change", (e)=>{
 colorPicker.addEventListener("change", (e) => {
     console.log("color picker: ", e.target.value)
 })
-// document.addEventListener("change", (e) => {
-//     if (e.target.value) {
-//         shemeValueSelected(e.target.value);  // Call the function if there's a value
-//     } else {
-//         console.log("No value selected", e)  // Log the event if no value
-//     }
-// });
+
+setColorBtn.addEventListener("click", ()=>{
+    generatedColorAPI()
+})
 
 /* Function to handle the selected value */
-function shemeValueSelected(inputValue) {
+function schemeValueSelected(inputValue) {
     console.log("Selected value:", inputValue)
 }
 
@@ -54,7 +53,7 @@ function generatedColorAPI(){
     })
     .catch(error => console.error('There was an issue with the fetch request:', error))  // Handle errors
 }
-generatedColorAPI()
+
 
 
 //----------------------------Testing----------------------
