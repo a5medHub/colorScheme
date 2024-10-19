@@ -1,27 +1,28 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    
+
 }
-/* #section-one div{
-    display: flex;
-} */
-#section-one, #section-two, #section-three {
+
+#section-one,
+#section-two,
+#section-three {
     display: flex;
     justify-content: space-between;
     /* flex-wrap: wrap;
     gap: 0.5em; */
 }
+
 #section-one {
     padding: 1em 0.5em;
 }
+
 #section-two div {
-    border: 0.2em solid red;
-    /* padding: 2em 0.2em; */
     height: 60vh;
     width: 50%;
-    
+
 }
+
 .colorInput input {
     padding: 0;
     border: 0px solid #778899;
@@ -29,22 +30,28 @@ body{
     width: 10vw;
 
 }
-.colorInput , .colorSelector, .setColor {
+
+.colorInput,
+.colorSelector,
+.setColor {
     margin: auto;
     justify-content: space-between;
     border-radius: 0.2rem;
     padding: 1em 0;
 }
-.setColor, .setColor button {
+
+.setColor,
+.setColor button {
     padding: 0.5em;
-    /* margin: auto 1em; */
 }
+
 #color-style {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 #section-three {
-    padding: auto 1em;
+    margin: auto 1em;
 }

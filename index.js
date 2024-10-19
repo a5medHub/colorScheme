@@ -2,6 +2,8 @@ const colorSeed = document.getElementById("color-seed")
 const colorPicker = document.getElementById("color-picker")
 const setColorBtn = document.getElementById("set-color-btn")
 
+handleColorGeneration()
+
 const colorData = []
 const getAllMode = []
 const getAllColors = []
@@ -19,14 +21,16 @@ colorPicker.addEventListener("change", (e) => {
     colorData[1] = e.target.value
 })
 
-setColorBtn.addEventListener("click", () => {
+
+function handleColorGeneration() {
     if (colorData != null) {
         let colorSeed = colorData && colorData[0] ? colorData[0] : '000000';
         let colorPicker = colorData && colorData[1] ? colorData[1] : 'monochrome';
         generatedColorAPI(colorSeed, colorPicker)
-
+        
     }
-})
+}
+setColorBtn.addEventListener("click", handleColorGeneration);
 
 /* Fetch data from the API */
 function generatedColorAPI(getHex, getMode) {
