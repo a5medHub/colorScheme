@@ -39,7 +39,12 @@ body{
     padding: 0.5em;
     /* margin: auto 1em; */
 }
-/* .setColor button, .colorInput {
-    background-color: aliceblue;
-    padding: 1em;
-} */
+#color-style {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#section-three {
+    padding: auto 1em;
+}
