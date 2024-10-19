@@ -3,10 +3,10 @@ const colorPicker = document.getElementById("color-picker")
 const setColorBtn = document.getElementById("set-color-btn")
 
 const colorData = []
+const getAllMode = []
+const getAllColors = []
 
 colorSeed.addEventListener("change", (e)=>{
-    // console.log("color selected", e.target.value)
-    // console.log("color selected", e.target.value)
     let hexWithHash = e.target.value
     let removedHash =  e.target.value.replace(/^#/, '')
     colorData[0] = removedHash
@@ -15,16 +15,16 @@ colorSeed.addEventListener("change", (e)=>{
 
 /* eventListener get value of option selected */
 colorPicker.addEventListener("change", (e) => {
-    // console.log("color picker: ", e.target.value)
     colorData[1] = e.target.value
 })
 
 setColorBtn.addEventListener("click", (colorSeed, colorPicker)=>{
-    colorSeed = colorData[0]
-    colorPicker = colorData[1]
-    // console.log(colorData)
-    generatedColorAPI(colorSeed, colorPicker)
+    if(colorData!=null){
+        colorSeed = colorData[0]
+        colorPicker = colorData[1]
+        generatedColorAPI(colorSeed, colorPicker)
 
+    }
 })
 
 
@@ -50,12 +50,23 @@ function generatedColorAPI(getHex, getMode){
         return res.json()  // Parse JSON response
     })
     .then(data => {
-        console.log("Mode:", data.mode)  // Log the mode
-        console.log("Colors:", data.colors)  // Log the colors
+        getAllMode.push(data.mode)
+        getAllColors.push(data.colors)
+        renderColors()
     })
     .catch(error => console.error('There was an issue with the fetch request:', error))  // Handle errors
 }
 
 
+function renderColors() {
+    console.log("Colors:", getAllColors[0])  // Log the colors
+    getAllColors.forEach(color =>{
+        console.log(color)
+        color.forEach(hexColors => {
+            console.log(hexColors.hex.value)
+        })
+    },[0])
+    
 
+}
 //----------------------------Testing----------------------
