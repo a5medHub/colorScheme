@@ -1,37 +1,39 @@
-
-
 const colorSeed = document.getElementById("color-seed")
 const colorPicker = document.getElementById("color-picker")
 const setColorBtn = document.getElementById("set-color-btn")
 
-
+const colorData = []
 
 colorSeed.addEventListener("change", (e)=>{
-    console.log("color selected", e.target.value)
+    // console.log("color selected", e.target.value)
+    // console.log("color selected", e.target.value)
+    let hexWithHash = e.target.value
+    let removedHash =  e.target.value.replace(/^#/, '')
+    colorData[0] = removedHash
+    colorData[2] = hexWithHash
 })
-
 
 /* eventListener get value of option selected */
 colorPicker.addEventListener("change", (e) => {
-    console.log("color picker: ", e.target.value)
+    // console.log("color picker: ", e.target.value)
+    colorData[1] = e.target.value
 })
 
-setColorBtn.addEventListener("click", ()=>{
-    generatedColorAPI()
-})
+setColorBtn.addEventListener("click", (colorSeed, colorPicker)=>{
+    colorSeed = colorData[0]
+    colorPicker = colorData[1]
+    // console.log(colorData)
+    generatedColorAPI(colorSeed, colorPicker)
 
-/* Function to handle the selected value */
-function schemeValueSelected(inputValue) {
-    console.log("Selected value:", inputValue)
-}
+})
 
 
 
 /* Fetch data from the API */
-function generatedColorAPI(){
+function generatedColorAPI(getHex, getMode){
     const url = "https://www.thecolorapi.com/scheme?" // Correct the hex value
-    let hex = "hex=0047AB"
-    let mode = "mode=monochrome"
+    let hex = "hex=" + getHex
+    let mode = "mode=" + getMode
     let endpoint = hex+"&"+mode
     /* Fetch parameters */
     const param = {
@@ -57,26 +59,3 @@ function generatedColorAPI(){
 
 
 //----------------------------Testing----------------------
-// const url = 'https://www.thecolorapi.com/scheme?hex=0047ABe'
-// /* eventListener get value of option selected */
-// document.addEventListener("change",(e)=>{
-//     if(e.target.value){
-//          shemeValueSelected(e.target.value)
-//     }else{
-//      console.log(e)
-// }
-// })
-
-// /* parameter is set from target.value in the eventListener */
-// function shemeValueSelected(inputValue) {
-//     console.log(inputValue)
-// }
-// const param = {
-//     method: "GET",
-//     headers: {
-//         "Content-Type": "application/json"
-//     }
-// }
-// fetch(url, param)
-//     .then(res => res.json())
-//     .then(data => console.log(data.mode , data.colors))
