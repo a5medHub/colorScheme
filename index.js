@@ -2,10 +2,11 @@ const colorSeed = document.getElementById("color-seed")
 const colorPicker = document.getElementById("color-picker")
 const setColorBtn = document.getElementById("set-color-btn")
 
-const colorData = []
-const getAllMode = []
-const getAllColors = []
-const hexValues = []
+let colorData = []
+let getAllMode = []
+let getAllColors = []
+let hexValues = []
+
 
 colorSeed.addEventListener("change", (e) => {
     let hexWithHash = e.target.value
@@ -19,22 +20,16 @@ colorPicker.addEventListener("change", (e) => {
     colorData[1] = e.target.value
 })
 
-
-function handleColorGeneration() {
-    if (colorData != null) {
-        let colorSeed = colorData && colorData[0] ? colorData[0] : '000000';
-        let colorPicker = colorData && colorData[1] ? colorData[1] : 'monochrome';
-        generatedColorAPI(colorSeed, colorPicker)
-        console.log(colorData)
-        
-    }
-}
-
-setColorBtn.addEventListener("click", handleColorGeneration);
-
+setColorBtn.addEventListener("click", ()=>{
+    let colorSeed = colorData[0] // '000000';
+    let colorPicker = colorData[1] // 'monochrome';
+    generatedColorAPI(colorSeed, colorPicker)
+    console.log(colorData)
+})
 
 /* Fetch data from the API */
-function generatedColorAPI(getHex, getMode) {
+generatedColorAPI()
+function generatedColorAPI(getHex='000000', getMode='monochrome') {
     const url = "https://www.thecolorapi.com/scheme?" // Correct the hex value
     let hex = "hex=" + getHex
     let mode = "mode=" + getMode
@@ -63,8 +58,10 @@ function generatedColorAPI(getHex, getMode) {
 
 function renderColors() {
     getAllColors.forEach(color => {
+        console.log(color)
         color.forEach(hexColors => {
             hexValues.push(hexColors.hex.value)
+            console.log(hexValues)
         })
     }, [0])
     colorsToUI()
@@ -83,4 +80,12 @@ function colorsToUI() {
     document.getElementById('s3-4').innerText = hexValues[3]
     document.getElementById('s3-5').innerText = hexValues[4]
 
+    deleteValues()
+
+}
+function deleteValues() {
+    colorData = []
+    getAllMode = []
+    getAllColors = []
+    hexValues = []
 }
