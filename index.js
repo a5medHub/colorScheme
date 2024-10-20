@@ -24,7 +24,7 @@ setColorBtn.addEventListener("click", ()=>{
     let colorSeed = colorData[0] // '000000';
     let colorPicker = colorData[1] // 'monochrome';
     generatedColorAPI(colorSeed, colorPicker)
-    console.log(colorData)
+    // console.log(colorData)
 })
 
 /* Fetch data from the API */
@@ -58,10 +58,10 @@ function generatedColorAPI(getHex='000000', getMode='monochrome') {
 
 function renderColors() {
     getAllColors.forEach(color => {
-        console.log(color)
+        // console.log(color)
         color.forEach(hexColors => {
             hexValues.push(hexColors.hex.value)
-            console.log(hexValues)
+            // console.log(hexValues)
         })
     }, [0])
     colorsToUI()
